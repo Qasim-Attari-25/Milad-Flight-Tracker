@@ -89,7 +89,7 @@ const FlightTracker: React.FC = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <p>Contact us: <a href="mailto:flighttracker@example.com" className="email">flighttracker@example.com</a></p>
+        <p>Contact us: <a href="mailto:flighttracker@example.com" className="email">miladflighttracker@gmail.com</a></p>
         <p>&copy; 2024 Flight Tracker. All rights reserved.</p>
       </footer>
     </div>
