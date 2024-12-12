@@ -1,96 +1,223 @@
-/* src/Login.css */
-
+/* Login Page Styles */
 .Login {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #bfd7c8;
-}
-
-.Login h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1.5rem;
-}
-
-.Login form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
     padding: 2rem;
-    background-color: #95d29b;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.Login form div {
-    margin-bottom: 1.5rem;
-}
-
-.Login label {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.Login input[type="email"],
-.Login input[type="password"] {
+    position: relative;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Background Setup */
+  .Login::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1544016768-982d1554f0b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2048&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: -2;
+  }
+  
+  .Login::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(26, 31, 60, 0.8) 0%, 
+      rgba(42, 49, 102, 0.8) 100%
+    );
+    z-index: -1;
+  }
+  
+  /* Login Form Container */
+  .Login form {
     width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.Login input[type="email"]:focus,
-.Login input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-.Login button[type="submit"] {
-    padding: 0.75rem;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.Login button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.Login p {
-    font-size: 0.9rem;
-    margin-top: 1rem;
+    max-width: 420px;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  /* Heading Styles - Updated for more solid appearance */
+  .Login h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
-    color: #333;
-}
-
-.Login p[style*="color: red"] {
-    color: #d9534f;
-}
-
-.Login p[style*="color: green"] {
-    color: #5cb85c;
-}
-
-.Login a {
-    color: #007bff;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .Login h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    border-radius: 2px;
+  }
+  
+  /* Form Groups */
+  .Login form > div {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Labels */
+  .Login label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+  }
+  
+  .Login input:focus + label {
+    transform: translateX(5px);
+    color: var(--accent-color);
+  }
+  
+  /* Input Fields */
+  .Login input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  .Login input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(165, 180, 252, 0.3);
+  }
+  
+  /* Submit Button */
+  .Login button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Login button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    background: linear-gradient(135deg, #5b54e5 0%, #8847ed 100%);
+  }
+  
+  .Login button:active {
+    transform: translateY(0);
+  }
+  
+  /* Sign Up Link */
+  .Login p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+  }
+  
+  .Login p a {
+    color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.Login a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
+    font-weight: 500;
+    margin-left: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .Login p a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .Login p a:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Status Messages */
+  .Login p[style*="color: red"],
+  .Login p[style*="color: green"] {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .Login p[style*="color: red"] {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+  
+  .Login p[style*="color: green"] {
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .Login {
+      padding: 1rem;
+    }
+  
+    .Login form {
+      padding: 1.5rem;
+    }
+  
+    .Login h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Accessibility Focus Styles */
+  .Login input:focus-visible,
+  .Login button:focus-visible,
+  .Login a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
