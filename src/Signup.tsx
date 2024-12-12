@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Signup.css';
 import { Link } from 'react-router-dom'; 
 
-//  registerUser function
+// registerUser function
 const registerUser = async (formValues: { firstName: string; lastName: string; email: string; password: string }) => {
   console.log('Sending payload:', formValues); // Log payload
   
@@ -47,6 +47,10 @@ const Signup: React.FC = () => {
       
       setSuccess('Signup successful!');
       setError('');
+
+      // Save user data to local storage
+      const userData = { firstName, lastName, email };
+      localStorage.setItem('user', JSON.stringify(userData));
 
       // Clear the form fields
       setFirstName('');
@@ -107,7 +111,7 @@ const Signup: React.FC = () => {
         </div>
         <button type="submit">Sign Up</button>
       </form>
-      <p>Already have an account? <Link to="/login">Login here</Link></p> {/* Add link to login */}
+      <p>Already have an account? <Link to="/login">Login here</Link></p>
     </div>
   );
 };
