@@ -4,11 +4,22 @@
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #9eb9f9;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #919ce7;
+}
+
+.Signup::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1544016768-982d1554f0b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2048&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  z-index: -2;
 }
 
 .Signup h2 {
